@@ -47,7 +47,7 @@ webcam.set(4, 640)
 
 while True:
     success, frame = webcam.read()
-    imgSmall = cv2.resize(frame, (0,0), None, 0.25, 0.25)
+    imgSmall = cv2.resize(frame, (0, 0), None, 0.25, 0.25)
     imgRGB = cv2.cvtColor(imgSmall, cv2.COLOR_BGR2RGB)
 
     faceCurrFrame = face_recognition.face_locations(imgRGB)
@@ -60,7 +60,6 @@ while True:
 
         if matches[matchIndex] and faceDistance[matchIndex] < 0.5100:
             name = nameList[matchIndex].upper()
-            print("hey")
             y1, x2, y2, x1 = faceLoc
             y1, x2, y2, x1 = y1*4, x2*4, y2*4, x1*4
 
